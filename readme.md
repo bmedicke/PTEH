@@ -4,9 +4,18 @@
 
 <!-- vim-markdown-toc GFM -->
 
+* [enumeration](#enumeration)
+* [foothold](#foothold)
+* [priviledge escalation](#priviledge-escalation)
 * [oneliners](#oneliners)
 
 <!-- vim-markdown-toc -->
+
+## enumeration
+
+## foothold
+
+## priviledge escalation
 
 ## oneliners
 
