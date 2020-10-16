@@ -11,10 +11,10 @@
 ## oneliners
 
 ```sh
-# upgrade shell
+# upgrade shell:
 python -c 'import pyt;pty.spawn("bash")'
 
-# fix environment
+# fix environment:
 export TERM=linux
 
 # listen for incoming connection:
