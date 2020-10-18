@@ -106,10 +106,9 @@ curl $h/file -so file
 
 ```sh
 # powershell:
-Invoke-WebRequest hostname/file.exe -OutFile file.exe
-# powershell shorthand:
 iwr hostname/file.exe -outf file.exe
-
+# long version:
+Invoke-WebRequest hostname/file.exe -OutFile file.exe
 ```
 
 </details>
