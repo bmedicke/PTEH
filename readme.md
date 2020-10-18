@@ -9,6 +9,22 @@
 
 ## priviledge escalation
 
+```sh
+id
+ps -p $$
+ip a # ifconfig
+lsblk
+netstat -tulpen
+```
+
+```sh
+cd /opt
+python3 -m http.server 80
+```
+
+```sh
+./linpeas.sh -a
+```
 ## oneliners
 
 ```sh
