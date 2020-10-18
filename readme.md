@@ -5,6 +5,11 @@
 
 ## enumeration
 
+```sh
+nmap -v $host | tee 00.nmap # fast initial scan.
+
+```
+
 ## foothold
 
 ## priviledge escalation
