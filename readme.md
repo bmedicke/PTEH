@@ -2,6 +2,24 @@
 
 # toc
 
+<!-- vim-markdown-toc GFM -->
+
+  * [enumeration](#enumeration)
+  * [foothold and pivot](#foothold-and-pivot)
+    * [kali](#kali)
+    * [linux](#linux)
+    * [windows](#windows)
+  * [priviledge escalation](#priviledge-escalation)
+    * [linux](#linux-1)
+    * [windows](#windows-1)
+* [bonus](#bonus)
+  * [oneliners](#oneliners)
+  * [kali config](#kali-config)
+  * [kali tips](#kali-tips)
+  * [basics](#basics)
+    * [windows](#windows-2)
+
+<!-- vim-markdown-toc -->
 
 ## enumeration
 
@@ -112,6 +130,7 @@ linpeas.bat # if exe fails.
 
 ### windows
 
+# bonus
 ## oneliners
 
 <details><summary></summary>
@@ -138,7 +157,7 @@ netstat -tulpen
 
 </details>
 
-# kali config
+## kali config
 
 <details><summary></summary>
 
@@ -169,7 +188,7 @@ mv chisel*windows* chisel.exe
 
 </details>
 
-# kali tips
+## kali tips
 
 <details><summary></summary>
 
@@ -177,8 +196,8 @@ mv chisel*windows* chisel.exe
 
 </details>
 
-# basics
-## windows
+## basics
+### windows
 
 <details><summary></summary>
 
