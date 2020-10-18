@@ -36,5 +36,16 @@ export TERM=linux
 
 # listen for incoming connection:
 nc -nvlp 1234
+
+# logging a reverse shell locally:
+script # stop with ^D. breaks in vi.
+
+# get a temp dir:
+cd $(mktemp -d)
+
+# get local connections:
+netstat -tulpen
+```
+
 ```
 # kali config
