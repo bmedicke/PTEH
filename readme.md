@@ -23,6 +23,11 @@ python3 -m http.server 80
 # via samba:
 impacket-smbserver -smb2server share .
 ```
+> reverse shells and port bindings
+
+```sh
+rlwrap np -lnvp 42424
+```
 
 ### linux
 
