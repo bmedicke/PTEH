@@ -15,11 +15,13 @@ nmap -v $host | tee 00.nmap # fast initial scan.
 ### linux
 
 ```sh
-id
+id # user and groups.
 ps -p $$
-ip a # ifconfig
-lsblk
-netstat -tulpen
+ip a # or ifconfig.
+netstat -tulpen # connections.
+lsblk # devices.
+locate / # list of probably every file on the system.
+# depending on under which user updatedb ran.
 ```
 
 ### windows
@@ -50,7 +52,7 @@ export TERM=linux
 nc -nvlp 1234
 
 # logging a reverse shell locally:
-script # stop with ^D. breaks in vi.
+script # stop with ^D. breaks in vi. finicky.
 
 # get a temp dir:
 cd $(mktemp -d)
