@@ -27,7 +27,6 @@ python3 -m http.server 80
 # via samba:
 impacket-smbserver -smb2server share .
 ```
----
 
 </details>
 
@@ -178,3 +177,20 @@ mv chisel*windows* chisel.exe
 
 </details>
 
+# basics
+## windows
+
+<details><summary></summary>
+
+```sh
+# windows get cmd.exe help:
+help
+
+# powershell
+cd $env:tmp
+
+# cmd.exe
+cd %tmp%
+```
+
+</details>
