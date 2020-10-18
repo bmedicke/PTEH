@@ -48,7 +48,6 @@ cd $(mktemp -d)
 netstat -tulpen
 ```
 
-```
 # kali config
 
 ```sh
