@@ -10,9 +10,11 @@ nmap -v $host | tee 00.nmap # fast initial scan.
 
 ```
 
-## foothold
+## foothold and pivot
 
 ### linux
+
+> information gathering
 
 ```sh
 id # user and groups.
@@ -28,9 +30,14 @@ locate / # list of probably every file on the system.
 
 ### kali
 
+> serving files
+
 ```sh
-cd /opt
+# via webserver:
 python3 -m http.server 80
+
+# via samba:
+impacket-smbserver -smb2server share .
 ```
 
 ## priviledge escalation
