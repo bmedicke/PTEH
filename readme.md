@@ -101,6 +101,19 @@ curl $h/file -so file
 
 ### windows
 
+<details><summary><input type=checkbox> information gathering</summary>
+
+```sh
+dir
+whoami /all
+systeminfo
+set
+tasklist
+ipconfig /all
+```
+
+</details>
+
 <details><summary><input type=checkbox> downloading files</summary>
 
 
