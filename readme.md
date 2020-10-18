@@ -21,3 +21,4 @@ export TERM=linux
 # listen for incoming connection:
 nc -nvlp 1234
 ```
+# kali config
