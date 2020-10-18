@@ -65,6 +65,7 @@ impacket-smbserver -smb2server share .
 rlwrap nc -lnvp 42424
 
 # chisel
+chisel server -p 12345 --reverse
 
 # plink
 ```
