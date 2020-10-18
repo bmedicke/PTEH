@@ -12,7 +12,7 @@ nmap -v $host | tee 00.nmap # fast initial scan.
 
 ## foothold
 
-## priviledge escalation
+### linux
 
 ```sh
 id
@@ -22,10 +22,16 @@ lsblk
 netstat -tulpen
 ```
 
+### windows
+
+### kali
+
 ```sh
 cd /opt
 python3 -m http.server 80
 ```
+
+## priviledge escalation
 
 ```sh
 ./linpeas.sh -a
