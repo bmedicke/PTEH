@@ -1,5 +1,15 @@
 # PT𓀮EH
 
+```sh
+# VM host:
+
+# kali server:
+10.10.14.69
+
+# vuln boxes:
+10.10.10.198
+```
+
 # toc
 
 <!-- vim-markdown-toc GFM -->
