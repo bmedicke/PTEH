@@ -26,7 +26,7 @@ impacket-smbserver -smb2server share .
 > reverse shells and port bindings
 
 ```sh
-rlwrap np -lnvp 42424
+rlwrap nc -lnvp 42424
 ```
 
 ### linux
