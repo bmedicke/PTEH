@@ -75,4 +75,6 @@ gunzip chisel*
 mv chisel*windows* chisel.exe
 ```
 
+# kali tips
+
 * ranger disables previews for root (enable them on a by case basis with `zp`)
