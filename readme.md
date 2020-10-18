@@ -38,13 +38,26 @@ locate / # list of probably every file on the system.
 # depending on under which user updatedb ran.
 ```
 
-### windows
-
-## priviledge escalation
+> info gathering with external tools
 
 ```sh
 ./linpeas.sh -a
 ```
+
+### windows
+
+> info gathering with external tools
+
+```sh
+linpeas.exe
+linpeas.bat # if exe fails.
+```
+
+## priviledge escalation
+
+### linux
+
+### windows
 
 ## oneliners
 
