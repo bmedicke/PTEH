@@ -121,6 +121,7 @@ systeminfo
 set
 tasklist
 ipconfig /all
+netstat -nao | findstr 127 | findstr LISTEN
 ```
 
 </details>
