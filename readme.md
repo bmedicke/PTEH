@@ -65,7 +65,12 @@ impacket-smbserver -smb2server share .
 rlwrap nc -lnvp 42424
 
 # chisel
-chisel server -p 12345 --reverse
+# start the client first:
+chisel client -v 10.10.14.69 R:8888:127.0.0.1:8888
+# local: 8888
+# remote: 127.0.0.1:8888
+chisel server -v -p 12345 --reverse
+# connect with:
 
 # plink
 ```
