@@ -28,6 +28,7 @@
   * [kali tips](#kali-tips)
   * [basics](#basics)
     * [windows](#windows-2)
+    * [linux](#linux-2)
 
 <!-- vim-markdown-toc -->
 
@@ -239,6 +240,35 @@ cd $env:tmp
 
 # cmd.exe
 cd %tmp%
+```
+
+</details>
+
+### linux
+
+<details open>
+<summary></summary>
+
+```sh
+umask -S # file creation mask.
+# help umask (linux)
+
+sudo -l # list allowed and forbidden commands.
+
+sudo -u kali whoami # run whoami as kali.
+
+base64 # great for exfiltration without inet.
+# then just copy the text from the terminal.
+# -d to decode it again.
+# use pipes or pass a filename.
+
+strings -e # different encoding options.
+
+find . # get list of all files in dir.
+# great for lot's of files/folders with spaces
+# where autocompletion is broken.
+
+xdotool # fake keyboard mouse in X.
 ```
 
 </details>
