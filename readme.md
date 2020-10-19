@@ -219,6 +219,13 @@ gunzip chisel*
 mv chisel*windows* chisel.exe
 ```
 
+```sh
+# metasploit
+sudo service postgresql start
+sudo msfdb init
+msfconsole # db_status
+```
+
 </details>
 
 ## kali tips
