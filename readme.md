@@ -128,6 +128,9 @@ set
 tasklist
 ipconfig /all
 netstat -nao | findstr 127 | findstr LISTEN
+net start # services
+sc #?
+powershell -c "Get-Service | Format-Table -AutoSize"
 ```
 
 </details>
