@@ -235,6 +235,7 @@ env
 pwd # /var/lib/tomcat9/webapps
 ls -alp # finally we can properly browse around!
 ls -alp webapps
+find . # decent alternative for: tree
 
 # we have gained a new ability:
 # let's exfiltrate some data that we have generated ourselves:
