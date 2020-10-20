@@ -187,6 +187,11 @@ not figured that out anytime soon.)
       * as soon as we call it our payload will be executed
       * let's create a TCP reverse shell
 
+* Tomcat uses Java JSPs. (JavaServerPages).
+* WAR files: Web Applications aRchives (contains a JAR)
+* JAR files: Java ARchives
+
+The URL for uploading WAR files is http://tabby:8080/manager/text/deploy
 
 ```sh
 
