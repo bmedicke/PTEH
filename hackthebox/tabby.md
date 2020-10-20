@@ -175,6 +175,8 @@ egrep -v "bin/nologin|bin/false" passwd
 
 Alright, after a couple of hours I've looked up a hint:
 The idea is to upload a shell via the Tomcat manager.
+(I did not know you could upload things, so I would have
+not figured that out anytime soon.)
 
 The URL for this is http://tabby:8080/manager/text/deploy
 
