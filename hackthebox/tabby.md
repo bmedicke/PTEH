@@ -239,7 +239,8 @@ uname -a # Linux tabby 5.4.0-31-generic #35-Ubuntu SMP Thu May 7 20:20:34 UTC 20
 env
 pwd # /var/lib/tomcat9/webapps
 ls -alp # finally we can properly browse around!
-ls -alp webapps
+ls -pal webapps
+alias ll='ls -lap' # always useful.
 find . # decent alternative for: tree
 
 # we have gained a new ability:
