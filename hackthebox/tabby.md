@@ -222,7 +222,7 @@ curl -u 'tomcat':'$3cureP4s5w0rd123!' -T shell.war 'http://tabby:8080/manager/te
 # visit the new app in the browser:
 # http://tabby:8080/shell
 # or curl it, don't forget the following /:
-curl -u 'tomcat':'$3cureP4s5w0rd123!' 'http://tabby:8080/shell/'
+curl 'http://tabby:8080/shell/'
 
 ```
 
