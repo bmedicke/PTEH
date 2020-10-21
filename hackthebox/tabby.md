@@ -248,4 +248,9 @@ find . # decent alternative for: tree
 cd webapps/shell
 find / > filesystem 2>&1
 curl tabby:8080/shell/filesystem > filesystem
+
+# look for ports.
+netstat -nao
+# maybe we can run lipeas...
+```
 ```
