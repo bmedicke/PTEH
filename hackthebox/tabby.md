@@ -238,21 +238,20 @@ export TERM=screen-256color # or xterm
 # curcially, we can use ctrl-c without breaking out of the shell completely!
 screen # does not work, insufficient write permissions. different dir maybe?
 
-id # tomcat, tomcat, tomcat
+id # tomcat, tomcat, tomcat.
 umask -S # permissions for new files.
 uname -a # Linux tabby 5.4.0-31-generic #35-Ubuntu SMP Thu May 7 20:20:34 UTC 2020 x86_64 [...]
 env
 pwd # /var/lib/tomcat9/webapps
 ls -alp # finally we can properly browse around!
 ls -pal webapps
-alias ll='ls -lap' # always useful.
+alias ll='ls -lAp' # always useful.
 find . # decent alternative for: tree
 
 # we have gained a new ability:
 # let's exfiltrate some data that we have generated ourselves:
 cd webapps/shell
-find / > filesystem 2>&1
-curl tabby:8080/shell/filesystem > filesystem
+find / > filesystem 2>&1 # get filesystem layout.
 
 # look for ports.
 netstat -nao
