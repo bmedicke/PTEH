@@ -9,8 +9,9 @@ openvpn 00be.ovpn # connect to the network.
 ping 10.10.10.198 # make sure Buff is up.
 
 cd /root/projects && mkdir buff
+cd buff
 
-echo 'buff 10.10.10.198' >> /etc/hosts
+echo '10.10.10.198 buff' >> /etc/hosts
 sup 10.10.10.198 # or buff
 # as soon as one scan is done, open new terminal and run:
 so # sets p (ports) and h (host) variable from scan result.
