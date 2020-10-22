@@ -171,8 +171,6 @@ linpeas.bat # if exe fails.
 # bonus
 ## oneliners
 
-<details><summary></summary>
-
 ```sh
 # upgrade shell:
 python -c 'import pyt;pty.spawn("bash")'
@@ -193,11 +191,7 @@ cd $(mktemp -d)
 netstat -tulpen
 ```
 
-</details>
-
 ## kali config
-
-<details><summary></summary>
 
 ```sh
 # pip2 for new Kalis:
@@ -231,20 +225,12 @@ sudo msfdb init
 msfconsole # db_status
 ```
 
-</details>
-
 ## kali tips
-
-<details><summary></summary>
 
 * ranger disables previews for root (enable them on a by case basis with `zp`)
 
-</details>
-
 ## basics
 ### windows
-
-<details><summary></summary>
 
 ```sh
 # windows get cmd.exe help:
@@ -257,12 +243,7 @@ cd $env:tmp
 cd %tmp%
 ```
 
-</details>
-
 ### linux
-
-<details open>
-<summary></summary>
 
 ```sh
 umask -S # file creation mask.
@@ -285,8 +266,6 @@ find . # get list of all files in dir.
 
 xdotool # fake keyboard mouse in X.
 ```
-
-</details>
 
 # tools
 
