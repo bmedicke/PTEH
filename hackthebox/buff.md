@@ -24,7 +24,7 @@ dirb http://$h:$webp -o dirb.log # look for interesting folders.
 # (via the openvpn connection)
 curl 10.10.10.198:8080 # works.
 
-# If we wan't to use the VM host to browse it:
+# If we want to use the VM host to browse it:
 # on the host we will use local port forwarding:
 h=10.10.10.198
 p=8080
