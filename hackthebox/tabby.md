@@ -1,12 +1,13 @@
 # tabby
 
 <details>
-<summary>spoiler: used techniques</summary>
+<summary>used techniques</summary>
 
 * php directory traversal
-* tomcat manager shell upload
-* reverse tcp shell
+* tomcat manager war shell upload curl
+* payload generation with msfvenom
 * zip archive password cracking
+* exfiltration with nc
 * lxc/ldx privilegde escalation
 
 </details>
