@@ -2,6 +2,18 @@
 
 Buff ran on `10.10.10.198`. My IP was `10.10.14.69`
 
+<details>
+<summary>used techniques</summary>
+
+* php webapp exploit to get a webshell
+* transferring files via impacket samba server
+* reverse shell via netcat
+* rebinding a local port via chisel
+* finding an exploit with winpeas
+* privilege escalation with a buffer overflow
+
+</details>
+
 > enumeration with Kali
 
 ```sh
