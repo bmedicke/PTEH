@@ -178,9 +178,6 @@ python -c 'import pyt;pty.spawn("bash")'
 # fix environment:
 export TERM=linux
 
-# listen for incoming connection:
-nc -nvlp 1234
-
 # logging a reverse shell locally:
 script # stop with ^D. breaks in vi. finicky.
 
