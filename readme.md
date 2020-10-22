@@ -268,10 +268,9 @@ xdotool # fake keyboard mouse in X.
 
 ## less
 
-examples:
-
+> read raw control chars (colors).
 ```sh
-./linpeas.sh | less -R # read raw control chars (colors).
+./linpeas.sh | less -R
 ```
 
 * less uses many vim bindings
