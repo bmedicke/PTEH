@@ -1,5 +1,17 @@
 # tabby
 
+<details>
+<summary>spoiler</summary>
+
+* php directory traversal
+* tomcat manager shell upload
+* reverse tcp shell
+* lxc/ldx privilegde escalation
+
+</details>
+
+---
+
 ```sh
 ## kali
 
