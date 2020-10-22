@@ -1,11 +1,12 @@
 # tabby
 
 <details>
-<summary>spoiler</summary>
+<summary>spoiler: used techniques</summary>
 
 * php directory traversal
 * tomcat manager shell upload
 * reverse tcp shell
+* zip archive password cracking
 * lxc/ldx privilegde escalation
 
 </details>
