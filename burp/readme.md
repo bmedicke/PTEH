@@ -14,3 +14,10 @@
 * the page should be stuck and a new request should show up in Burp
 * if you click on forward the page should load
 
+# CLI
+
+> start Burp from the command line
+
+```sh
+burpsuite --help
+```
