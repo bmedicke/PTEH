@@ -50,6 +50,21 @@ nmap -v $host | tee 00.nmap # fast initial scan.
 
 </details>
 
+<details>
+<summary>finding exploits</summary>
+
+* https://exploit-db.com
+* https://www.rapid7.com/db/
+* google
+
+```sh
+# CLI utility for https://exploit-db.com  database:
+searchsploit motd # search exploits for message of the day.
+searchsploit -x 1235.c # look at specific exploit.
+```
+
+</details>
+
 ## foothold and pivot
 
 ### kali
