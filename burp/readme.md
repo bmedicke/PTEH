@@ -1,6 +1,19 @@
 # Burp Suite
 
-## setup
+
+# toc
+
+<!-- vim-markdown-toc GFM -->
+
+* [setup](#setup)
+  * [test setup](#test-setup)
+  * [macOS](#macos)
+* [CLI](#cli)
+* [Virtual Host routing](#virtual-host-routing)
+
+<!-- vim-markdown-toc -->
+
+# setup
 
 * either set up the proxy in your browser or OS
 * or click the `Browser` button to open Chromium (Intercept tab)
@@ -13,6 +26,10 @@
 * load a page
 * the page should be stuck and a new request should show up in Burp
 * if you click on forward the page should load
+
+## macOS
+
+`brew cask install burp-suite`
 
 # CLI
 
