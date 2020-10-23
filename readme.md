@@ -19,7 +19,7 @@
     * [kali](#kali)
     * [linux](#linux)
     * [windows](#windows)
-  * [priviledge escalation](#priviledge-escalation)
+  * [privilege escalation](#privilege-escalation)
     * [linux](#linux-1)
     * [windows](#windows-1)
 * [bonus](#bonus)
@@ -193,7 +193,7 @@ linpeas.bat # if exe fails.
 
 </details>
 
-## priviledge escalation
+## privilege escalation
 
 ### linux
 
