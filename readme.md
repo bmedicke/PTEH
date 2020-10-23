@@ -52,11 +52,13 @@ nmap -A -v -sS -oA 02 -p- $host
 </details>
 
 <details>
-<summary>finding exploits</summary>
+<summary><input type=checkbox> finding exploits</summary>
 
+* google
 * https://exploit-db.com
 * https://www.rapid7.com/db/
-* google
+* if it's a webapp/CMS/etc. look for a copyright date in the header/footer
+  * those are usually not automatically generated
 
 ```sh
 # CLI utility for https://exploit-db.com  database:
