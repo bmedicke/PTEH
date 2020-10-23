@@ -100,7 +100,7 @@ lsblk # devices.
 locate / # list of probably every file on the system.
 # depending on under which user updatedb ran.
 
-# pretty print of home files.
+# pretty print of home files:
 find /home -type f -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t | tee files
 ```
 
