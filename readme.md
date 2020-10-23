@@ -15,6 +15,7 @@
 <!-- vim-markdown-toc GFM -->
 
   * [enumeration](#enumeration)
+    * [webapps](#webapps)
   * [foothold and pivot](#foothold-and-pivot)
     * [kali](#kali)
     * [linux](#linux)
@@ -52,20 +53,26 @@ nmap -A -v -sS -oA 02 -p- $host
 > finding exploits
 
 * google
-* https://exploit-db.com
 * https://www.rapid7.com/db/
-* if it's a webapp/CMS/etc.:
-  * `dirb` it
-  * try admin:admin credentials
-  * try default credentials
-  * look for a copyright date in the header/footer
-    * usually not automatically generated
+* https://exploit-db.com
 
 ```sh
 # CLI utility for https://exploit-db.com  database:
 searchsploit motd # search exploits for message of the day.
 searchsploit -x 1235.c # look at specific exploit.
 ```
+
+### webapps
+
+* if it's a webapp/CMS/etc.:
+  * `dirb` it
+  * check out `robots.txt`
+  * try admin:admin credentials
+  * try default credentials
+    * `hydra`
+  * look for a copyright date in the header/footer
+    * usually not automatically generated
+  * try some vhosts by modifying the header with [Burp Suite](#burp-suite)
 
 ## foothold and pivot
 
