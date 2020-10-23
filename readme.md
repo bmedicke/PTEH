@@ -41,7 +41,7 @@
 
 ## enumeration
 
-<input type=checkbox> port scanning
+> port scanning
 
 ```sh
 nmap -v $host | tee 00.nmap # fast initial scan.
