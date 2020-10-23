@@ -92,8 +92,9 @@ chisel server -v -p 12345 --reverse
 
 
 ```sh
+uname -a # os info.
 id # user and groups.
-ps -p $$
+ps -p $$ # name of current process.
 ip a # or ifconfig.
 netstat -tulpen # connections.
 lsblk # devices.
