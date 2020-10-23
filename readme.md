@@ -54,8 +54,12 @@ nmap -A -v -sS -oA 02 -p- $host
 * google
 * https://exploit-db.com
 * https://www.rapid7.com/db/
-* if it's a webapp/CMS/etc. look for a copyright date in the header/footer
-  * those are usually not automatically generated
+* if it's a webapp/CMS/etc.:
+  * `dirb` it
+  * try admin:admin credentials
+  * try default credentials
+  * look for a copyright date in the header/footer
+    * usually not automatically generated
 
 ```sh
 # CLI utility for https://exploit-db.com  database:
