@@ -33,6 +33,7 @@
   * [less](#less)
   * [nc](#nc)
   * [ssh](#ssh)
+  * [Burp Suite](#burp-suite)
 
 <!-- vim-markdown-toc -->
 
@@ -320,3 +321,7 @@ nc -vvz localhost 1-1024 2>&1 | grep -v refused
 ssh -N kali -L 0.0.0.0:8080:tabby:8080 -L 0.0.0.0:80:tabby:80
 # binds tabby's 80 and 8080 to all interfaces on the executing server.
 ```
+
+## Burp Suite
+
+* [Burp Suite](burp)
