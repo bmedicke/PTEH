@@ -47,7 +47,6 @@
 nmap -v $host | tee 00.nmap # fast initial scan.
 nmap -A -v -sS -oA 01 -T4 $host
 nmap -A -v -sS -oA 02 -p- $host
-
 ```
 
 </details>
