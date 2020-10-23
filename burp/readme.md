@@ -21,3 +21,9 @@
 ```sh
 burpsuite --help
 ```
+# Virtual Host routing
+
+* Vhosts allow webservers to serve different content depending on domain name
+* this is done by looking at the (mandatory )`Host` header from requests
+* **changing the `Host` in a request can result in different pages being served**
+* also check out: https://github.com/codingo/VHostScan
