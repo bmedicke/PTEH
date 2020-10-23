@@ -103,6 +103,7 @@ locate / # list of probably every file on the system.
 
 # pretty print of home files:
 find /home -type f -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t | tee files
+dpkg -l # list of installed packages (and versions)
 ```
 
 </details>
