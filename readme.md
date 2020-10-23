@@ -80,7 +80,7 @@ searchsploit -x 1235.c # look at specific exploit.
 
 * don't forget about:
   * `/usr/share/webshells`
-  * `/usr/share/windows-binaries`
+  * `/usr/share/windows-resources`
   * `/usr/share/wordlists`
 
 > serving files
