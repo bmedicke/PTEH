@@ -124,6 +124,10 @@ lsblk # devices.
 locate / # list of probably every file on the system.
 # depending on under which user updatedb ran.
 
+find / -perm -4000 2>/dev/null # setuid executables.
+# if any of these have an exploit they can be used
+# to elevate privileges to root.
+
 # pretty print of home files:
 find /home -type f -printf "%f\t%p\t%u\t%g\t%m\n" 2>/dev/null | column -t | tee files
 dpkg -l # list of installed packages (and versions)
