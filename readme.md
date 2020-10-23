@@ -70,7 +70,7 @@ impacket-smbserver -smb2server share .
 
 * on Linux you should save your files to `/dev/shm` (the ramdisk)
   * type `mount | grep shm` to see that it is a tmpfs filesystem
-  * it gets wiped on unmount
+  * it gets wiped on unmount (you could clean up with `umount /dev/shm`)
   * other choices:
     * `/tmp` gets wiped on reboot (might be tmpfs)
     * `/var/tmp` persists between reboots (not tmpfs)
