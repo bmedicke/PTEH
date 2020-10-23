@@ -34,6 +34,8 @@
   * [nc](#nc)
   * [ssh](#ssh)
   * [Burp Suite](#burp-suite)
+  * [sqlmap](#sqlmap)
+  * [thc-hydra](#thc-hydra)
 
 <!-- vim-markdown-toc -->
 
@@ -325,3 +327,7 @@ ssh -N kali -L 0.0.0.0:8080:tabby:8080 -L 0.0.0.0:80:tabby:80
 ## Burp Suite
 
 * [Burp Suite](burp)
+
+## sqlmap
+
+## thc-hydra
