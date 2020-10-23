@@ -197,6 +197,8 @@ linpeas.bat # if exe fails.
 
 ### linux
 
+* Kernel < 4.8.3: Dirty Cow (`dirty.c`)
+
 ### windows
 
 # bonus
