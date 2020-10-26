@@ -2,48 +2,48 @@
 
 # Bandit
 
-## level 1-2
+## 1-2
 
 * file named `-`, content is password
 * `-` is interpreted by many programs as `stdin`/`stdout`
 * `cat -` uses stdin instead of file
 * [`cat ./-` works!](https://unix.stackexchange.com/questions/16357/usage-of-dash-in-place-of-a-filename)
 
-## level 4-5
+## 4-5
 
 * one human readable file and a bunch of binary files
 * `find inhere -type f -exec file {} \;`
 * `reset` to fix messed up terminal
 
-## level 5-6
+## 5-6
 
 * `find inhere/ -size 1033c -type f ! -executable -exec sh -c 'file {} | grep ASCII' \;`
 
-## level 6-7
+## 6-7
 
 * `find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null  `
 
-## level 7-8
+## 7-8
 
 * `grep millionth data.txt | awk '{printf $2}'`
 
-## level 8-9
+## 8-9
 
 * `sort data.txt | uniq -u # print only unique lines.`
 
-## level 9-10
+## 9-10
 
 * `strings data.txt | grep ===`
 
-## level 10-11
+## 10-11
 
 * `base64 -d data.txt`
 
-## level 11-12
+## 11-12
 
 * `cat data.txt | tr 'a-zA-Z' 'n-za-mN-ZA-M' # rot13.`
 
-## level 12-13
+## 12-13
 
 ```sh
 mkdir /tmp/ben && cd /tmp/ben
