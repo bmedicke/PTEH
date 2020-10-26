@@ -234,7 +234,7 @@ cat /tmp/k4_01 | sort | uniq -c | sort -gr
 * but first let me see if we can find the key length ourselves
 
 ```sh
-# look for common bigraph: YYI looks promising (9 matches)
+# look for common trigraph: YYI looks promising (9 matches)
 # could be `the` (it's also in the first position)
 
 # lets write down the positions:
