@@ -304,3 +304,28 @@ vi found1
 # this offset only has 3 matches. of course there are 4 more possible offset!
 ```
 
+## 5-6
+
+```sh
+# same thing again, search for a common trigraph.
+# ZAL has 6 matches
+# pos: 25, 88, 313, 664, 952, 1465
+# dis: 63, 225, 351, 288, 513 (likely an uneven key)
+# gcd: 9
+# GNX has 6 matches -> 
+# pos: 6, 348, 528, 546, 654, 1230
+# dis: 342, 180, 18, 108, 576
+# yep, let's go with 9.
+
+# fold it to 9 width in vim.
+# GNX are always at position 6,
+# ZAL at position 7, so no false matches.
+
+# which is lucky because because we did not have
+# to eliminate any matches from our GCD calculations.
+```
+
+* https://www.wolframalpha.com/input/?i=greatest+common+denominator+%2863+225+351+288+513%29
+* https://www.wolframalpha.com/input/?i=greatest+common+denominator+%2863+225+351+288+513+342+180+18+108+576%29
+* same procedure with cryptool as before, pwd: `keylength`
+
