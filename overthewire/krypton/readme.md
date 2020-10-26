@@ -189,3 +189,118 @@ cat krypton4 | tr -d ' ' | tr 'SQJUBNGCDYVWMYTXKIA' 'eatsornihdldupyfwvb'
 ```
 
 * http://practicalcryptography.com/cryptanalysis/letter-frequencies-various-languages/english-letter-frequencies/
+
+## 4-5
+
+* *now* we have a Vigenère cipher
+* good thing I just recently had some practise...
+* and we get the key length
+
+```sh
+cd /krypton/krypton4
+
+# let's split our polyalphebetic ciphertext:
+cat found1 | tr -d ' ' | fold -w1 | sed -n '1~6p' > /tmp/k4_01 # every 6th line, starting with 1.
+cat found1 | tr -d ' ' | fold -w1 | sed -n '2~6p' > /tmp/k4_02
+cat found1 | tr -d ' ' | fold -w1 | sed -n '3~6p' > /tmp/k4_03
+cat found1 | tr -d ' ' | fold -w1 | sed -n '4~6p' > /tmp/k4_04
+cat found1 | tr -d ' ' | fold -w1 | sed -n '5~6p' > /tmp/k4_05
+cat found1 | tr -d ' ' | fold -w1 | sed -n '6~6p' > /tmp/k4_06
+
+vim /tmp/k4_0{1..6} -O6 # take a look at our 6 monoalphabetic ciphertexts.
+
+# let's analyze the first one:
+cat /tmp/k4_01 | sort | uniq -c | sort -gr
+
+#     63 S  ->   E
+#     59 I  ->   T
+#     55 X  ->   A
+#     44 M  ->   O
+#     43 J  ->   I
+#     34 E  ->   N
+#     30 Y  ->   S
+#     29 W  ->   
+#     28 V  ->   
+#     28 P  ->   
+#     28 L  ->   
+#     27 T  ->   
+#     27 R  ->   
+# ...
+
+# you know what, I'm not doing that by hand again.
+```
+
+* To save my sanity I'm going to use JCryptTool
+* but first let me see if we can find the key length ourselves
+
+```sh
+# look for common bigraph: YYI looks promising (9 matches)
+# could be `the` (it's also in the first position)
+
+# lets write down the positions:
+  # 1, 139, 571, 1093, 1177, 1249, 1711, 1783, 2347
+# calculate distances:
+  # 138, 432, 468, 522, 84, 72, 462, 72, 564
+  # look like an even keylength.
+# calculate greatest common factor, which is indeed 6.
+# (ignoring the possibility for false positives and multiples of six)
+
+# let's play around with it in vim
+vi found1
+:%s/ //g       # remove spaces
+:%!fold -w6    # align by key length
+:%s/^Y/t/g    # replace all Ys in first position with ts (22)
+:%s/\%2cY/h/g # replace all Ys in the second position with hs (19)
+:%s/\%3cI/e/g # replace all Is in the third position with es (34)
+
+# theCSJ
+# IZeBAG
+# thXRIE
+# WVeXAF
+# NJOOVQ
+# QVHDLC
+# RKLBSS
+# LhXRIQ
+# tIeOXQ
+# ...
+
+# quite a few possible matches already.
+# but enough of that, not going down that rabbit hole.
+# off to cryptool!
+```
+
+* https://www.wolframalpha.com/input/?i=greatest+common+denominator+%28138%2C+432%2C+468%2C+522%2C+84%2C+72%2C+462%2C+72%2C+564%29
+* JCrypTool
+  * load `found1` text into it
+  * Analysis -> Vigenere Breaker -> Automated Analysis
+    * password length was detected as 6
+      * (bonus) Friedman test for a visual representation of the distances between patterns
+    * password is `frekey`
+      * (bonus) Frequency analysis -> Polyalphabetic -> key legth 6
+  * the plaintext is `THESOLDIERWITHTHE...`
+    * JCryptTool was successful (because the plaintext makes sense)
+    * we were right, with our guess about `YYI` being `the`
+  * we can use the same key to decrypt the content of the file `krypton5`
+    * don't forget to remove the space
+
+```sh
+# bonus:
+
+# compare partially decrypted text:
+# theCSJ
+# IZeBAG
+# thXRIE
+
+# with decrypted:
+# THESOL
+# DIERWI
+# THTHEG
+
+# as you can tell we only found one possible offset for THE!
+# namely offset 1. the THE that started at offset 3 is not found
+# because it uses a different chiper. (we did get partial matches though)
+
+# we can take that knowledge and go back to search for RIE (the offset 3 THE):
+# this offset only has 3 matches. of course there are 4 more possible offset!
+```
+
