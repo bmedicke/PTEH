@@ -33,6 +33,8 @@
 * [tools](#tools)
   * [less](#less)
   * [nc](#nc)
+  * [openssl](#openssl)
+  * [socat and ncat](#socat-and-ncat)
   * [ssh](#ssh)
   * [Burp Suite](#burp-suite)
   * [sqlmap](#sqlmap)
@@ -343,6 +345,15 @@ nc -vzz localhost 80 8080
 # or a range
 nc -vvz localhost 1-1024 2>&1 | grep -v refused
 ```
+
+## openssl
+
+* for SSL connections:
+  * `s_client` and `s_server` subcommands
+
+## socat and ncat
+
+* for encrypted shells/exfiltration
 
 ## ssh
 
