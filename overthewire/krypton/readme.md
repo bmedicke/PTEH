@@ -44,7 +44,7 @@ cat found* | vim -
 :bn # switch from scratch pad.
 %s/ //g # remove spaces.
 
-# search for repeated trigrams.
+# search for repeated trigraphs.
 %s/TYV//gn # 5 matches
 %s/JCB//gn # 14 matches, could be the.
 
@@ -142,7 +142,7 @@ cat krypton4 | tr -d ' ' | tr 'SQJUBNGCDYVWMYTX' 'etaoinsrhdlucmfy'
 
 cat krypton4 | tr -d ' ' | tr 'SQJUBNGCDYVWMYTXK' 'etaoinsrhdlucmfyw'
 # welluiseaheleIelyicnmtoowinuroAncae
-# trigrams: `the` and `and` are very common. `the` is perfect because we are confident about e.
+# trigraph: `the` and `and` are very common. `the` is perfect because we are confident about e.
 
 cat krypton4 | tr -d ' ' | tr 'SQJUBNGCDYVWMYTXK' 'etaoinsrhdlucmfyw' | grep [t,h,e] --color
 # we have one potential match: `ahe` is less likely than `the` let's try that:
