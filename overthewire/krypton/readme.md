@@ -296,11 +296,11 @@ vi found1
 # DIERWI
 # THTHEG
 
-# as you can tell we only found one possible offset for THE!
+# as you can tell we only found one (of the six possible) offsets for THE!
 # namely offset 1. the THE that started at offset 3 is not found
 # because it uses a different chiper. (we did get partial matches though)
 
-# we can take that knowledge and go back to search for RIE (the offset 3 THE):
+# we can take that knowlege and go back to search for RIE (the offset 3 THE):
 # this offset only has 3 matches. of course there are 4 more possible offset!
 ```
 
