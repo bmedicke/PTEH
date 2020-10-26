@@ -306,6 +306,9 @@ xdotool # fake keyboard mouse in X.
 * https://hackthebox.eu/
   * [hackthebox writeups](hackthebox)
 * https://www.hacker101.com/
+* https://microcorruption.com/
+* http://smashthestack.org/
+* https://exploit-exercises.lains.space/ (mirror, original is down)
 
 # tools
 
