@@ -32,6 +32,7 @@
     * [linux](#linux-2)
 * [CTFs and wargames](#ctfs-and-wargames)
 * [tools](#tools)
+  * [find](#find)
   * [less](#less)
   * [nc](#nc)
   * [openssl](#openssl)
@@ -307,6 +308,13 @@ xdotool # fake keyboard mouse in X.
 * https://www.hacker101.com/
 
 # tools
+
+## find
+
+```sh
+# look for binaries with SUID:
+find / -perm -4000 2>/dev/null
+```
 
 ## less
 
