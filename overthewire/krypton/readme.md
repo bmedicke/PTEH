@@ -241,7 +241,7 @@ cat /tmp/k4_01 | sort | uniq -c | sort -gr
   # 1, 139, 571, 1093, 1177, 1249, 1711, 1783, 2347
 # calculate distances:
   # 138, 432, 468, 522, 84, 72, 462, 72, 564
-  # look like an even keylength.
+  # looks like an even keylength.
 # calculate greatest common factor, which is indeed 6.
 # (ignoring the possibility for false positives and multiples of six)
 
