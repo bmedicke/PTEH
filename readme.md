@@ -30,6 +30,7 @@
   * [basics](#basics)
     * [windows](#windows-2)
     * [linux](#linux-2)
+* [CTFs and wargames](#ctfs-and-wargames)
 * [tools](#tools)
   * [less](#less)
   * [nc](#nc)
@@ -295,6 +296,15 @@ find . # get list of all files in dir.
 
 xdotool # fake keyboard mouse in X.
 ```
+
+# CTFs and wargames
+
+* https://overthewire.org/ (linux)
+  * [overthewire writeups](overthewire)
+* https://underthewire.tech/ (powershell)
+* https://hackthebox.eu/
+  * [hackthebox writeups](hackthebox)
+* https://www.hacker101.com/
 
 # tools
 
