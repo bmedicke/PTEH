@@ -1,3 +1,6 @@
 # OverTheWire wargames
 
-* [bandit](bandit)
+In the order I tackled them:
+
+* [Bandit](bandit)
+* [Krypton](krypton)
