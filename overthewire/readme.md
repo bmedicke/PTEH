@@ -69,6 +69,7 @@ file data8.bin # gzip
 mv data8.bin d.gz; gunzip d.gz;ls
 file d # ASCII, finally :D
 cat d # this was hell.
+rm -rf /tmp/ben
 ```
 
 ## 13-14
@@ -258,22 +259,136 @@ ssh -i bandit26.sshkey bandit26@localhost
 
 ```sh
 ./27 # login to bandit27
-mkdir /tmp/benben
-git clone ssh://bandit27-git@localhost/home/bandit27-git/repo /tmp/benben
-cd /tmp/benben
+mkdir /tmp/ben
+git clone ssh://bandit27-git@localhost/home/bandit27-git/repo .
+cd /tmp/ben
 ls -Alp
 cat README # 0ef186ac70e04ea33b4c1853d2526fa2
+rm -rf /tmp/ben
 ```
 
 ## 28-29
 
 ```sh
-mkdir /tmp/benbenben && cd /tmp/benbenben
-git clone ssh://bandit28-git@localhost/home/bandit28-git/repo /tmp/benbenben
+mkdir /tmp/ben && cd /tmp/ben
+git clone ssh://bandit28-git@localhost/home/bandit28-git/repo .
+ls -Alp
 cat README
 # username: bandit29
 # password has been removed, but properly?
 git log # 'fix info leak' amazing :D
 git checkout c086d11a00c0648d095d04c089786efef5e01264
-cat README.md # bbc96594b4e001778eee9975372716b2
+cat README # bbc96594b4e001778eee9975372716b2
+rm -rf /tmp/ben
+```
+
+## 29-30
+
+```sh
+mkdir /tmp/ben && cd /tmp/ben
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo .
+ls -Alp
+cat README.md
+git log
+git checkout 18a6fd6d5ef7f0874bbdda2fa0d77b3b81fd63f7
+cat README.md # nope.
+git checkout master
+git branch -a # sploits?
+git checkout sploits-dev # horde5.md? I am confused.
+git checkout dev
+cat README.md # 5b90576bedb2cc04c86a9e924ce42faf
+rm -rf /tmp/ben
+```
+
+## 30-31
+
+```sh
+mkdir /tmp/ben && cd /tmp/ben
+git clone ssh://bandit30-git@localhost/home/bandit30-git/repo .
+cat README.md # oh.
+ls -Alp
+git log
+git branch -a
+git tag # secret you say.
+git checkout tags/secret # fatal: reference is not a tree: tags/secret
+# oh again.
+
+find .git # not a whole lot.
+grep -r secret .git/ # f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea
+git checkout f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea # nope, it's a blob.
+# maybe it's the password.
+ssh bandit31@localhost # it's not.
+```
+
+* let's learn about pack-refs:
+  * https://git-scm.com/docs/git-pack-refs
+  * https://git-scm.com/docs/git-unpack-file
+
+```sh
+git verify-pack -v .git/objects/pack/pack-de18a053429e82191f95e66ca5eae12948a1d5fb.pack
+git unpack-file f17132340e8ee6c159e0a4a6bc6f80e1da3b1aea
+cat .merge_file_tXoYcm # 47e603bb428404d265f59c42920d81e5
+
+# one can hope:
+ssh bandit31@localhost # muahaha.
+
+# quit out.
+rm -rf /tmp/ben
+```
+
+## 30-31
+
+```sh
+mkdir /tmp/ben && cd /tmp/ben
+git clone ssh://bandit31-git@localhost/home/bandit31-git/repo .
+
+git status
+echo 'May I come in?' > key.txt
+
+git add key.txt
+git add -f key.txt
+
+git commit -m 'knock knock'
+git push # 56a9bf19c63d650ce78e6ec0354ee45e
+
+# that was cool.
+
+rm -rf /tmp/ben
+```
+## 31-32
+
+```sh
+# OH NO; IT IS THE UPPERCASE SHELL!
+help
+help
+help
+HELP
+
+# ...
+
+$(pwd)
+`pwd`
+$$ # 19647. it's a start.
+${pwd} # sh: 1: /home/bandit32: Permission denied
+${shell} # WELCOME TO THE UPPERCASE SHELL, strange.
+${user} # sh: 1: bandit32: not found
+# aha. let's check `env` on a different machine.
+${editor} # really thought that would work.
+${pager}
+${pwd}../../../bin/bash # of course not.
+# SendEnv with ssh does not work either.
+$0 # :D
+echo $0 # sh
+# copy it over via base64/tmux.
+# this is one great binary.
+cat /etc/bandit_pass/bandit33 # c9c3199ddf4121b10cf581a98d51caee
+```
+
+Definitely my favourite so far!
+
+## 33-34
+
+```sh
+ls -lap
+cat README.md
 ```
