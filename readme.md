@@ -348,8 +348,21 @@ nc -vvz localhost 1-1024 2>&1 | grep -v refused
 
 ## openssl
 
+* [man pages](https://www.openssl.org/docs/manmaster/man1/)
+  * `man openssl`
+  * `-help` flag for subcommands
 * for SSL connections:
   * `s_client` and `s_server` subcommands
+    * `openssl s_client -connect localhost:443`
+    * `openssl s_server`
+* for hashing:
+  * `echo hello | openssl sha1`
+  * `openssl md5 test_file`
+* for encoding:
+  * `openssl base64 -in test_file`
+* for encryption:
+  * `openssl chacha20`
+  * `openssl aes256`
 
 ## socat and ncat
 
