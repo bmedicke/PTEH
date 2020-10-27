@@ -96,8 +96,7 @@ Vpp # disas view.
 r2 -Ad ./printfile /etc/leviathan_pass/leviathan2
 :dc # yep, that one worked.
 
-# we'll need to find another way. let's pick out some relevant lines
-# of the rest of the program:
+# we'll need to find another way. let's pick out some relevant lines:
 0x08048585      e886feffff     call sym.imp.access         ; int access(const char *path, int mode)
 0x080485b1      68d4860408     push str.bin_cat__s         ; 0x80486d4 ; "/bin/cat %s" # fstring.
 0x080485c2      e839feffff     call sym.imp.snprintf       ; int snprintf(char *s, size_t size,
