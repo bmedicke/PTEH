@@ -504,7 +504,7 @@ cat table_c | fold -w 30
 # you might have noticed that each letter is simply rotated.
 
 # look for the encrypted character in the corresponding position
-# in the table and read off the encrypted char from the right.
+# in the table and read off the decrypted char from the right.
 
 cat /krypton/krypton6/krypton7
 # PNUKLYLWRQKGKBE
