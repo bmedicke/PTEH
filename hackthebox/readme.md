@@ -1,4 +1,4 @@
-# hack the box writeups
+# Hack The Box VMs
 
 Order in which I tackled them:
 
