@@ -496,7 +496,7 @@ cat table_c | fold -w 30
 # CGARBEWGWXIRFLQGPDVWANDSCMAIPL   Y
 # DHBSCFXHXYJSGMRHQEWXBOETDNBJQM   Z
 
-# I have added labes with vim.
+# I have added labels with vim.
 # we can use this table to decode our message.
 # tip: use vim with a crosshair cursor!
 # :set cursorline cursorcolumn
