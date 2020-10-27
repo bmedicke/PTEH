@@ -301,7 +301,7 @@ vi found1
 # because it uses a different chiper. (we did get partial matches though)
 
 # we can take that knowlege and go back to search for RIE (the offset 3 THE):
-# this offset only has 3 matches. of course there are 4 more possible offset!
+# this offset only has 3 matches. of course there are 4 more possible offsets!
 ```
 
 ## 5-6
