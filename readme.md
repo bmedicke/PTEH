@@ -301,10 +301,10 @@ xdotool # fake keyboard mouse in X.
 # CTF and wargame writeups
 
 * https://overthewire.org/ (linux)
-  * [overthewire writeups](overthewire)
+  * [overthewire writeups](writeups/overthewire)
 * https://underthewire.tech/ (powershell)
 * https://hackthebox.eu/
-  * [hackthebox writeups](hackthebox)
+  * [hackthebox writeups](writeups/hackthebox)
 * https://www.hacker101.com/
 * https://microcorruption.com/
 * http://smashthestack.org/
