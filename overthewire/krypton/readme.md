@@ -516,3 +516,9 @@ cat /krypton/krypton6/krypton7
 > crosshair.png
 >
 > <img src="../media/crosshair.png"></img>
+
+```sh
+| ._ .__|_ _ ._   _| _ ._  _
+|<|\/|_)|_(_)| | (_|(_)| |(/_
+   / |
+```
