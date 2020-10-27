@@ -30,7 +30,7 @@
   * [basics](#basics)
     * [windows](#windows-2)
     * [linux](#linux-2)
-* [CTFs and wargames](#ctfs-and-wargames)
+* [CTF and wargame writeups](#ctf-and-wargame-writeups)
 * [tools](#tools)
   * [find](#find)
   * [less](#less)
@@ -298,7 +298,7 @@ find . # get list of all files in dir.
 xdotool # fake keyboard mouse in X.
 ```
 
-# CTFs and wargames
+# CTF and wargame writeups
 
 * https://overthewire.org/ (linux)
   * [overthewire writeups](overthewire)
