@@ -2,5 +2,5 @@
 
 In the order I tackled them:
 
-* [Bandit](bandit)
-* [Krypton](krypton)
+* [Bandit](bandit) (done)
+* [Krypton](krypton) (done)
