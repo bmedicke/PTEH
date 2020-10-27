@@ -424,7 +424,7 @@ cat cipher | fold -w 30 | head -n 20
 # EICTDGYIYZKTHNSIRFXYCPFUEOCKRN
 # EICTDGYIYZKTHNSIRFXYCPFUEOCKRN
 
-# so our keylength is 20.
+# so our keylength is 30.
 
 # make sure the RNG always produces the same output:
 /krypton/krypton6/encrypt plain cipher2
