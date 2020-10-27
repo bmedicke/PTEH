@@ -76,8 +76,8 @@ Vpp # disas view.
 ||   0x08048594      68b9860408     push str.You_cant_have_that_file...
 ||   0x08048599      e822feffff     call sym.imp.puts
 
-# this part calls the `access` syscall and jumps if our user (leviathan2)
-# is allowed to read the target file. this jump avoids a second jump that quits out.
+# this part calls the `access` syscall and jumps if our user (leviathan2) has read access.
+# this jump avoids a second jump that quits out. (with 'You cant have that file...')
 # the second jump effectively prohibits us from making use of the setuid bit (leviathan3)
 
 # for fun we can break just before the test and null out eax to force the first jump:
