@@ -27,7 +27,7 @@ echo a > t
 /krypton/krypton2/encrypt t
 cat ciphertext # so our a turned into an M.
 
-# turn M back to A and continue the pattern.
+# turn M back to A and continue any pattern.
 cat krypton3 | tr 'M-ZA-L' 'A-Z' # it is.
 
 # bonus:
