@@ -514,4 +514,5 @@ cat /krypton/krypton6/krypton7
 * no cryptool neccessary :D
 
 > crosshair.png
-<img src="../media/crosshair.png"></img>
+>
+> <img src="../media/crosshair.png"></img>
