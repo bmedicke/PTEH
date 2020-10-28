@@ -206,3 +206,21 @@ var var_108h = 0xffffd560 = "AAAA\n"
 whoami # leviathan4
 cat /etc/leviathan_pass/leviathan4 # vuH0coox6m
 ```
+
+## 4-5
+
+```sh
+ls -Alp
+find .trash
+.trash/bin
+# 01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+
+# all of the groups start with 0 and are 8 bits long.
+# probably an ASCII string.
+
+.trash/bin | tr ' ' ','
+# 01010100,01101001,01110100,01101000,00110100,01100011,01101111,01101011,01100101,01101001,00001010,
+# nevermind, not doing it in python this time.
+
+for byte in $(.trash/bin); do rax2 -b ${byte} ; done # Tith4cokei
+```
