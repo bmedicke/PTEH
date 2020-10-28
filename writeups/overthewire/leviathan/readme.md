@@ -134,3 +134,75 @@ cat /etc/leviathan_pass/leviathan3 # Ahdiemoo1j
 ```
 
 * That one was great.
+
+## 3-4
+
+```sh
+ls -Alp
+./level3 # 1234? wrong.
+strings level3
+
+r2 -Ad level3 # let's start right with radare, strings has not worked once.
+Vpp
+g main
+B # break at main.
+:dc # run to breakpoint.
+
+# step over all that variable mangling.
+# addresses of var_2bh and var_24h are pushed to the stack.
+# strcmp is called from libc. strcmp compares last
+# two things on the stack and returns 0 in eax if
+# they were equal.
+
+:afv # get addresses for variables
+  # var int32_t var_2bh @ ebp-0x2b
+  # var int32_t var_24h @ ebp-0x24
+
+# there are the locations of our 2 variables.
+:afvd # but they are interpreted as the wrong type (int)
+
+:t # list all available types.
+# tell r2 to interpret them as C strings:
+:afvt var_2bh char *
+:afvt var_24h char *
+
+# step to right before the strcmp.
+:afvd
+  # var var_24h = 0xffffd684 = "h0no33"
+  # var var_2bh = 0xffffd67d = "kakaka"
+
+# ...and that strcmp was not the one we we're looking for
+# because we have not even entered our password yet.
+
+# step a bit further and into the `do_stuff()` call.
+# (I adore the naming convention.)
+
+# step past the fgets call, enter any password (I chose AAAA)
+# and stop before the strcmp call.
+# same thing as above, pick out the two strings that are compared:
+
+0x080485a9      8d85edfeffff   lea eax, [var_113h]
+0x080485af      50             push eax
+0x080485b0      8d85f8feffff   lea eax, [var_108h]
+0x080485b6      50             push eax
+0x080485b7      e814feffff     call sym.imp.strcmp
+
+# those are the two we are interested in:
+:afvd # all ints, again.
+:t
+:afvt var_113h char *
+:afvt var_108h char *
+:afvd
+
+# one of those is familiar:
+var var_113h = 0xffffd555 = "snlprintf\n"
+var var_108h = 0xffffd560 = "AAAA\n"
+
+# the other our password. really funny choice too :D
+# let's try it.
+
+./level3 # snlprintf
+# and we've got a shell:
+whoami # leviathan4
+cat /etc/leviathan_pass/leviathan4 # vuH0coox6m
+```
