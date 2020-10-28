@@ -255,3 +255,57 @@ ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
 ./leviathan5 # UgaoFee4li
 # there we go.
 ```
+
+## 6-7
+
+```sh
+ls -Alp
+file leviathan6
+
+./leviathan6 # 0
+./leviathan6 # a
+./leviathan6 # 0000
+./leviathan6 # 00000
+./leviathan6 $(python -c 'print("a"*5000)')
+# all just wrong.
+
+r2 -Ad ./leviathan6 0000
+dcu main; Vpp # continue until main and open assm view.
+
+# alright, looking for the block of code that throws a 'wrong' in our face
+# we can find the corresponding compare and jump (0x08048592).
+# the atoi call converts the string we passed along ("0000") to an int
+# and compares it with dword [var_ch].
+
+     0x08048587      e894feffff     call sym.imp.atoi           ;[2] ; int atoi(const char *str)
+     0x0804858c      83c410         add esp, 0x10
+     0x0804858f      3b45f4         cmp eax, dword [var_ch]
+ ,=< 0x08048592      752b           jne 0x80485bf
+ |   0x08048594      e827feffff     call sym.imp.geteuid        ;[3] ; uid_t geteuid(void)
+ |   0x08048599      89c3           mov ebx, eax
+ |   0x0804859b      e820feffff     call sym.imp.geteuid        ;[3] ; uid_t geteuid(void)
+ |   0x080485a0      83ec08         sub esp, 8
+ |   0x080485a3      53             push ebx
+ |   0x080485a4      50             push eax
+ |   0x080485a5      e856feffff     call sym.imp.setreuid       ;[4]
+ |   0x080485aa      83c410         add esp, 0x10
+ |   0x080485ad      83ec0c         sub esp, 0xc
+ |   0x080485b0      687a860408     push str.bin_sh             ; 0x804867a ; "/bin/sh"
+ |   0x080485b5      e826feffff     call sym.imp.system         ;[5] ; int system(const char *string)
+ |   0x080485ba      83c410         add esp, 0x10
+,==< 0x080485bd      eb10           jmp 0x80485cf
+|`-> 0x080485bf      83ec0c         sub esp, 0xc
+|    0x080485c2      6882860408     push str.Wrong              ; 0x8048682 ; "Wrong"
+|    0x080485c7      e804feffff     call sym.imp.puts           ;[6] ; int puts(const char *s)
+
+# get the location:
+:afvd var_ch # @ebp-0xc
+px @ ebp-0xc # d31b 0000
+# little endian, so: 0x00001bd3
+# we have what we need, quit radare.
+
+rax2 0x00001bd3 # 7123
+./leviathan6 7123 # and we got a shell.
+whoami # leviathan7
+cat /etc/leviathan_pass/leviathan7 # ahy7MaeBo9
+```
