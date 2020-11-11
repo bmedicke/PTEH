@@ -15,6 +15,7 @@
 <!-- vim-markdown-toc GFM -->
 
   * [the pentest process](#the-pentest-process)
+    * [reporting](#reporting)
   * [enumeration](#enumeration)
     * [webapps](#webapps)
   * [foothold and pivot](#foothold-and-pivot)
@@ -56,6 +57,11 @@ This section follows the structure of the [Penetration Testing Execution Standar
 5. exploitation
 6. post-exploitation
 7. reporting
+
+### reporting
+
+Documentation should start as soon as the pentenst starts to avoid situations
+where you need additional information but have already lost access to the target.
 
 ## enumeration
 
