@@ -14,7 +14,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
-  * [Pentest Standard](#pentest-standard)
+  * [the pentest process](#the-pentest-process)
   * [enumeration](#enumeration)
     * [webapps](#webapps)
   * [foothold and pivot](#foothold-and-pivot)
@@ -45,7 +45,7 @@
 
 <!-- vim-markdown-toc -->
 
-## Pentest Standard
+## the pentest process
 
 * http://www.pentest-standard.org/index.php/Main_Page
 
