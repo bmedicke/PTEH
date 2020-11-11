@@ -47,7 +47,15 @@
 
 ## the pentest process
 
-* http://www.pentest-standard.org/index.php/Main_Page
+This section follows the structure of the [Penetration Testing Execution Standard](http://www.pentest-standard.org/index.php/Main_Page) (PTEH):
+
+1. pre-engagement interactions
+2. information gathering
+3. threat modeling
+4. vulnerability analysis
+5. exploitation
+6. post-exploitation
+7. reporting
 
 ## enumeration
 
