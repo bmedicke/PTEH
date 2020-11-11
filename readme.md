@@ -14,6 +14,7 @@
 
 <!-- vim-markdown-toc GFM -->
 
+  * [Pentest Standard](#pentest-standard)
   * [enumeration](#enumeration)
     * [webapps](#webapps)
   * [foothold and pivot](#foothold-and-pivot)
@@ -43,6 +44,10 @@
   * [thc-hydra](#thc-hydra)
 
 <!-- vim-markdown-toc -->
+
+## Pentest Standard
+
+* http://www.pentest-standard.org/index.php/Main_Page
 
 ## enumeration
 
