@@ -48,7 +48,7 @@
 
 ## the pentest process
 
-This section follows the structure of the [Penetration Testing Execution Standard](http://www.pentest-standard.org/index.php/Main_Page) (PTEH):
+This section follows the structure of the [Penetration Testing Execution Standard](http://www.pentest-standard.org/index.php/Main_Page) (PTES):
 
 1. pre-engagement interactions
 2. information gathering
