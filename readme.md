@@ -63,6 +63,13 @@ This section follows the structure of the [Penetration Testing Execution Standar
 Documentation should start as soon as the pentenst starts to avoid situations
 where you need additional information but have already lost access to the target.
 
+---
+
+Creating a mindmap is a good idea to get a clear but complete picture.
+
+* possible tools:
+  * [Freemind](http://freemind.sourceforge.net/) allows for attaching files, such as port scans, as nodes
+
 ## enumeration
 
 > port scanning
