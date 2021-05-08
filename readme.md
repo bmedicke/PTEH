@@ -1,5 +1,15 @@
 # PT𓀮EH
 
+**Notes about Penetration Testing and Ethical Hackin.**
+
+![crosshair](writeups/overthewire/media/crosshair.png)
+
+---
+
+[REED](https://github.com/bmedicke/REED) | PTEH
+
+---
+
 ```sh
 # VM host:
 
