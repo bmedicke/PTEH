@@ -243,7 +243,7 @@ linpeas.bat # if exe fails.
 
 ```sh
 # upgrade shell:
-python -c 'import pyt;pty.spawn("bash")'
+python -c 'import pty;pty.spawn("bash")'
 
 # fix environment:
 export TERM=linux
