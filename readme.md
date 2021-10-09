@@ -23,6 +23,7 @@
 	* [post-exploitation](#post-exploitation)
 	* [reporting](#reporting)
 * [CTF and wargame writeups](#ctf-and-wargame-writeups)
+* [Web Application Security](#web-application-security)
 * [enumeration](#enumeration)
 	* [webapps](#webapps)
 * [foothold and pivot](#foothold-and-pivot)
@@ -89,6 +90,10 @@ Creating a mindmap is a good idea to get a clear but complete picture.
 * https://microcorruption.com/
 * http://smashthestack.org/
 * https://exploit-exercises.lains.space/ (mirror, original is down)
+
+# Web Application Security
+
+* **[webapp](wepapp)** (in repo link)
 
 # enumeration
 
