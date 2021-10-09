@@ -93,7 +93,7 @@ Creating a mindmap is a good idea to get a clear but complete picture.
 
 # Web Application Security
 
-* **[webapp](wepapp)** (in repo link)
+* **[webapp](webapp)** (in repo link)
 
 # enumeration
 
