@@ -337,10 +337,10 @@ xdotool # fake keyboard mouse in X.
 # CTF and wargame writeups
 
 * https://overthewire.org/ (linux)
-  * [overthewire writeups](writeups/overthewire)
+  * **[overthewire writeups](writeups/overthewire)** (in repo linknk)
 * https://underthewire.tech/ (powershell)
 * https://hackthebox.eu/
-  * [hackthebox writeups](writeups/hackthebox)
+  * **[hackthebox writeups](writeups/hackthebox)** (in repo linknk)
 * https://www.hacker101.com/
 * https://microcorruption.com/
 * http://smashthestack.org/
