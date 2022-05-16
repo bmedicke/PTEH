@@ -7,6 +7,7 @@
 * [primer.picoctf](#primerpicoctf)
 * [challenges](#challenges)
   * [104](#104)
+  * [179](#179)
 
 <!-- vim-markdown-toc -->
 
@@ -62,3 +63,4 @@ for i in range(len(flag)):
 print(dec)
 ```
 
+## 179
